@@ -20,22 +20,15 @@
     height: auto;
     width: auto;
     border-radius: 25px;
-    background-color: rgba(0, 0, 0, 0.24);
+    background-color: #80af81;
     backdrop-filter: blur(15px);
     justify-content: center;
   }
   h1 {
-    color: #3d3d3d;
+    color: #1a5319;
     font-weight: 600;
     text-align: center;
     font-size: 1.5em;
     font-family: "Open Sans", sans-serif;
-  }
-
-  /* Property Classes */
-  .no-select {
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-drag: none;
   }
 </style>
