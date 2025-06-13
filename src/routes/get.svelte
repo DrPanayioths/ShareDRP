@@ -5,6 +5,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import PocketBase from "pocketbase";
+  import searchPng from "$lib/search.png";
 
   const pb = new PocketBase("http://127.0.0.1:8090");
   let input: HTMLInputElement | null = null;
@@ -44,6 +45,12 @@
   <div id="dropper_ui">
     <div id="border">
       <div id="center_data">
+        <img
+          src={searchPng}
+          id="search_icon"
+          draggable="false"
+          alt="Search Icon Above Drag N Drop"
+        />
         <div id="text" class="no-select">Drag N Drop</div>
       </div>
     </div>
@@ -60,11 +67,12 @@
 
   #dropper_ui {
     background-color: #1a5319;
-
     height: 350px;
     width: 350px;
     border-radius: 50px;
     margin: 0 auto;
+    box-shadow: 0 0 30px #5eb95b;
+    transition: box-shadow 0.2s ease-in-out;
   }
 
   #upload {
@@ -75,6 +83,10 @@
     border-radius: 50px;
     margin: 0 auto;
     cursor: pointer;
+  }
+
+  #upload:hover ~ #dropper_ui {
+    box-shadow: 0 0 50px #5eb95b;
   }
 
   #border {
@@ -91,6 +103,7 @@
   #center_data {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     height: 100%;
   }
@@ -101,5 +114,9 @@
     font-weight: 800;
     margin: 0 auto;
     color: whitesmoke;
+  }
+
+  #search_icon {
+    margin-bottom: 10px;
   }
 </style>
