@@ -7,6 +7,7 @@
   import PocketBase from "pocketbase";
   import searchPng from "$lib/search.png";
 
+  // File Upload System
   const pb = new PocketBase("http://127.0.0.1:8090");
   let input: HTMLInputElement | null = null;
 
@@ -20,14 +21,13 @@
       .map(() => Math.floor(Math.random() * 36).toString(36))
       .join("");
 
-    console.log("File ID:", id);
     if (input && input.files) {
       const data = {
         id: id,
         file: input.files[0],
       };
 
-      await pb.collection("FilesHandler").create(data);
+      await pb.collection("Files").create(data);
     } else {
       console.error("No file selected");
     }
@@ -47,6 +47,7 @@
       <div id="center_data">
         <img
           src={searchPng}
+          class="no-select"
           id="search_icon"
           draggable="false"
           alt="Search Icon Above Drag N Drop"
