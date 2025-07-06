@@ -39,6 +39,12 @@
   href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
   rel="stylesheet"
 />
+<!-- [File ID] Title Font -->
+<link
+  href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=swap"
+  rel="stylesheet"
+/>
+<!-- [File ID] Text Font -->
 
 <div id="drop_system">
   <input id="upload" type="file" multiple on:change={upload_sequence} />
@@ -53,6 +59,13 @@
           alt="Search Icon Above Drag N Drop"
         />
         <div id="text" class="no-select">Drag N Drop</div>
+      </div>
+    </div>
+    <div id="notify_section">
+      <div id="notify_box">
+        <span class="notify_text">
+          File ID:<span id="notify_id">wdh2hjdhg</span>
+        </span>
       </div>
     </div>
   </div>
@@ -119,5 +132,50 @@
 
   #search_icon {
     margin-bottom: 10px;
+  }
+
+  /* Notify System */
+  #notify_section {
+    visibility: collapse;
+    /* Remove To Show Notify Section */
+    display: flex;
+    height: 10vw;
+    width: auto;
+  }
+
+  #notify_box {
+    background-color: #4caf50;
+    padding: 5px;
+    height: 4vh;
+    width: 50vh;
+    border-radius: 50px;
+
+    align-self: flex-end;
+    margin: 0 auto;
+    border: 2px solid #3e8e41;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .notify_text {
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+    margin-top: 15px;
+    font-family: "Bitcount Grid Double", system-ui;
+    font-weight: 500;
+    user-select: none;
+  }
+
+  #notify_id {
+    margin-left: 5px;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #ffffff;
+    user-select: text;
+  }
+
+  ::selection {
+    background-color: rgb(31, 155, 0);
   }
 </style>

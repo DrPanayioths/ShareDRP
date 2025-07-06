@@ -20,13 +20,12 @@
 <Navbar />
 <Get_file />
 
-// Pull File From Database
+<!-- Pull File From Database -->
 {#if showPuller == true}
   <Puller />
 {/if}
 
-<style>
-  :root {
-    background-color: #d6efd8;
-  }
-</style>
+<!-- To-Do: Add File Upload Mode: Pocketbase Or Vercel Storage -->
+<!-- To-Do: Copy Img In The Left of the File Id -->
+<!-- To-Do: Add Working File ID System -->
+<!-- The Color Pallete Of The Site: https://colorhunt.co/palette/d6efd880af81508d4e1a5319 -->

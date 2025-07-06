@@ -7,10 +7,10 @@
 
   async function puller() {
     const record = await pb.collection("Files").getOne(key_check);
-    const get_img = `http://127.0.0.1:8090/api/files/${record.collectionId}/${record.id}/${record.file}`;
+    const get = `http://127.0.0.1:8090/api/files/${record.collectionId}/${record.id}/${record.file}`;
 
     // To-Do: Selection For Randomazition Of Download File Name
-    const response = await fetch(get_img);
+    const response = await fetch(get);
     const blob = await response.blob();
 
     const temp = document.createElement("a");
