@@ -36,7 +36,7 @@
 
 #### 4. Run  `pocketbase.exe serve` And Hold Ctrl And Click The Dashbaord Link
 
-#### 5. Click The Tool Icon In The Left Sidebar, Click Import Collection, Load From JSON And Select The File Provided (`!!Import_me!!.json`)
+#### 5. Click The Tool Icon In The Left Sidebar, Click Import Collection, Load From JSON And Select The File Provided (`!!Import_me!!.json`) [[Download](https://github.com/DrPanayioths/ShareDRP/blob/main/!!import_me!!.json)]
 
 ### 🌐  Website Setup (Node.js Need To Be Already Installed)
 
