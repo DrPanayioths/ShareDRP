@@ -1,7 +1,6 @@
 <!-- To-Do: Add PreConfuriged File For The Pocketbase -->
 <!-- To-Do: Add Notification About File Status -->
-<!-- To-Do: Make Smooth Fade In And Out In Notification System -->
-<!-- To-Do: Better Notification UI -->
+<!-- To-Do: Add A Copy Link & Copy Code in the right collum system -->
 
 <script lang="ts">
   import { onMount } from "svelte";
@@ -19,11 +18,11 @@
   function notify(id: String) {
     const notify_box = document.getElementById("notify_section");
     const notify_text = document.getElementById("notify_id");
-    notify_box.style.visibility = "visible";
+    notify_box.style.opacity = "1";
     notify_text.textContent = id;
 
     setTimeout(() => {
-      notify_box.style.visibility = "hidden";
+      notify_box.style.opacity = "0";
     }, 10000);
   }
 
@@ -151,15 +150,15 @@
 
   /* Notify System */
   #notify_section {
-    visibility: collapse;
-    /* Remove To Show Notify Section */
+    opacity: 0;
     display: flex;
     height: 10vw;
     width: auto;
+    transition: all 0.5s;
   }
 
   #notify_box {
-    background-color: #4caf50;
+    background-color: #439946;
     padding: 5px;
     height: 4vh;
     width: 50vh;
@@ -167,8 +166,13 @@
 
     align-self: flex-end;
     margin: 0 auto;
-    border: 2px solid #3e8e41;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border: 4px solid #3e8e41;
+    box-shadow:
+      rgba(58, 58, 58, 0.25) 0px 54px 55px,
+      rgba(58, 58, 58, 0.12) 0px -12px 30px,
+      rgba(58, 58, 58, 0.12) 0px 4px 6px,
+      rgba(58, 58, 58, 0.17) 0px 12px 13px,
+      rgba(58, 58, 58, 0.09) 0px -3px 5px;
   }
 
   .notify_text {
@@ -191,6 +195,6 @@
   }
 
   ::selection {
-    background-color: rgb(31, 155, 0);
+    background-color: rgb(24, 121, 0);
   }
 </style>
