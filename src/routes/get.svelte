@@ -1,6 +1,7 @@
 <!-- To-Do: Add PreConfuriged File For The Pocketbase -->
-<!-- To-Do: Add File Access With The Unique Code -->
 <!-- To-Do: Add Notification About File Status -->
+<!-- To-Do: Make Smooth Fade In And Out In Notification System -->
+<!-- To-Do: Better Notification UI -->
 
 <script lang="ts">
   import { onMount } from "svelte";
@@ -14,6 +15,17 @@
   onMount(() => {
     input = document.getElementById("upload") as HTMLInputElement;
   });
+  // Notification Function
+  function notify(id: String) {
+    const notify_box = document.getElementById("notify_section");
+    const notify_text = document.getElementById("notify_id");
+    notify_box.style.visibility = "visible";
+    notify_text.textContent = id;
+
+    setTimeout(() => {
+      notify_box.style.visibility = "hidden";
+    }, 10000);
+  }
 
   async function upload_sequence() {
     const id = Array(15)
@@ -31,6 +43,9 @@
     } else {
       console.error("No file selected");
     }
+
+    // Notification Send
+    notify(id);
   }
 </script>
 
