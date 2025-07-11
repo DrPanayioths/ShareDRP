@@ -15,14 +15,14 @@
     input = document.getElementById("upload") as HTMLInputElement;
   });
   // Notification Function
-  function notify(id: String) {
+  function notify(id: string) {
     const notify_box = document.getElementById("notify_section");
     const notify_text = document.getElementById("notify_id");
-    notify_box.style.opacity = "1";
-    notify_text.textContent = id;
+    notify_box!.style.opacity = "1";
+    notify_text!.textContent = id;
 
     setTimeout(() => {
-      notify_box.style.opacity = "0";
+      notify_box!.style.opacity = "0";
     }, 10000);
   }
 
@@ -37,6 +37,26 @@
         id: id,
         file: input.files[0],
       };
+      // Check For Pocketbase Status
+      try {
+        const test = await fetch("http://127.0.0.1:8090/");
+        const response_data = await test.json();
+
+        // Sucess Rate System
+        let current = parseInt(
+          sessionStorage.getItem("successful_transfers") ?? "0"
+        );
+        let up = (current ?? 0) + 1;
+        let up_final = up.toString();
+        sessionStorage.setItem("successful_transfers", up_final);
+        console.log(sessionStorage.getItem("successful_transfers"));
+
+        // To-Do: Think about the idea to reset on failed Transfer
+      } catch {
+        // To-Do: Add Custom Notification System For The Error
+        alert("Pocketbase Is Not Started");
+        console.clear();
+      }
 
       await pb.collection("Files").create(data);
     } else {
