@@ -6,6 +6,7 @@
   import { onMount } from "svelte";
   import PocketBase from "pocketbase";
   import searchPng from "$lib/search.png";
+  import Copy from "$lib/Copy.png";
 
   // File Upload System
   const pb = new PocketBase("http://127.0.0.1:8090");
@@ -66,6 +67,11 @@
     // Notification Send
     notify(id);
   }
+
+  function function_copy() {
+    let data = document.getElementById("notify_id");
+    navigator.clipboard.writeText(data?.textContent || "No File Id Found");
+  }
 </script>
 
 <!-- Drag And Drop Font -->
@@ -79,9 +85,13 @@
   rel="stylesheet"
 />
 <!-- [File ID] Text Font -->
+<link
+  href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+  rel="stylesheet"
+/>
 
 <div id="drop_system">
-  <input id="upload" type="file" multiple on:change={upload_sequence} />
+  <input id="upload" type="file" multiple onchange={upload_sequence} />
   <div id="dropper_ui">
     <div id="border">
       <div id="center_data">
@@ -90,16 +100,26 @@
           class="no-select"
           id="search_icon"
           draggable="false"
-          alt="Search Icon Above Drag N Drop"
+          alt="Search Icon Of The Drag N Drop Box"
         />
         <div id="text" class="no-select">Drag N Drop</div>
       </div>
     </div>
     <div id="notify_section">
       <div id="notify_box">
-        <span class="notify_text">
+        <div class="notify_text">
           File ID:<span id="notify_id">wdh2hjdhg</span>
-        </span>
+
+          <button id="function_copy_button" onclick={function_copy}>
+            <img
+              src={Copy}
+              class="no-select"
+              id="copy_fileid"
+              draggable="false"
+              alt="Copy File ID Icon"
+            />
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -170,7 +190,7 @@
 
   /* Notify System */
   #notify_section {
-    opacity: 0;
+    /* opacity: 0; */
     display: flex;
     height: 10vw;
     width: auto;
@@ -212,6 +232,22 @@
     letter-spacing: 1px;
     color: #ffffff;
     user-select: text;
+  }
+
+  #function_copy_button {
+    border: none;
+    background-color: transparent;
+  }
+
+  #copy_fileid {
+    height: 2vh;
+    align-self: flex-end;
+    margin-left: 5px;
+    transition: 0.5s;
+  }
+
+  #copy_fileid:hover {
+    transform: scale(1.2);
   }
 
   ::selection {
