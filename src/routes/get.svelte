@@ -1,4 +1,3 @@
-<!-- To-Do: Add PreConfuriged File For The Pocketbase -->
 <!-- To-Do: Add Notification About File Status -->
 <!-- To-Do: Add A Copy Link & Copy Code in the right collum system -->
 
@@ -9,12 +8,14 @@
   import Copy from "$lib/Copy.png";
 
   // File Upload System
+
   const pb = new PocketBase("http://127.0.0.1:8090");
   let input: HTMLInputElement | null = null;
 
   onMount(() => {
     input = document.getElementById("upload") as HTMLInputElement;
   });
+
   // Notification Function
   function notify(id: string) {
     const notify_box = document.getElementById("notify_section");
@@ -190,7 +191,7 @@
 
   /* Notify System */
   #notify_section {
-    /* opacity: 0; */
+    opacity: 0;
     display: flex;
     height: 10vw;
     width: auto;
