@@ -18,13 +18,16 @@
 
   // Notification Function
   function notify(id: string) {
-    const notify_box = document.getElementById("notify_section");
+    const notify_section = document.getElementById("notify_section");
+    const notify_box = document.getElementById("notify_box");
     const notify_text = document.getElementById("notify_id");
-    notify_box!.style.opacity = "1";
+    notify_section!.style.opacity = "1";
+    notify_box!.style.visibility = "visible";
     notify_text!.textContent = id;
 
     setTimeout(() => {
-      notify_box!.style.opacity = "0";
+      notify_section!.style.opacity = "0";
+      notify_box!.style.visibility = "collapse";
     }, 10000);
   }
 
@@ -41,7 +44,7 @@
       };
       // Check For Pocketbase Status
       try {
-        const test = await fetch("http://127.0.0.1:8090/");
+        const test = await fetch("http://127.0.0.1:8090/api/health");
         const response_data = await test.json();
 
         // Sucess Rate System
@@ -51,13 +54,17 @@
         let up = (current ?? 0) + 1;
         let up_final = up.toString();
         sessionStorage.setItem("successful_transfers", up_final);
-        console.log(sessionStorage.getItem("successful_transfers"));
 
         // To-Do: Think about the idea to reset on failed Transfer
       } catch {
         // To-Do: Add Custom Notification System For The Error
-        alert("Pocketbase Is Not Started");
-        console.clear();
+        alert(
+          "💻 Pocketbase is offline! Run ./pocketbase serve in terminal to start the service 💻"
+        );
+
+        setTimeout(() => {
+          console.clear();
+        }, 3000);
       }
 
       await pb.collection("Files").create(data);
@@ -204,6 +211,7 @@
     height: 4vh;
     width: 50vh;
     border-radius: 50px;
+    visibility: collapse;
 
     align-self: flex-end;
     margin: 0 auto;

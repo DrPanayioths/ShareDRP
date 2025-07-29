@@ -1,5 +1,5 @@
 <script lang="ts">
-  let DRP_Powered = "<DrPanayioths/>";
+  let Powered = "<DrPanayioths/>";
 </script>
 
 <head>
@@ -11,7 +11,7 @@
 </head>
 
 <div id="bar">
-  <h1 class="no-select">Share Server | Powered By {DRP_Powered}</h1>
+  <h1 class="no-select">Share Server | Powered By {Powered}</h1>
 </div>
 
 <style>
