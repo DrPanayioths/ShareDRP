@@ -2,7 +2,6 @@
   import Navbar from "./headbar.svelte";
   import Get_file from "./get.svelte";
   import Puller from "./pull.svelte";
-  import Settings from "./settings.svelte";
   import "./shared.scss";
   import { onMount } from "svelte";
 
@@ -21,7 +20,6 @@
 <Navbar />
 
 <Get_file />
-<Settings />
 
 <!-- Pull File From Database -->
 {#if showPuller == true}

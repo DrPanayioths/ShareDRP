@@ -24,7 +24,7 @@
 	},
 	"dependencies": {
 		"@vercel/blob": "^1.1.1",
-		"firebase": "^11.9.1",
-		"pocketbase": "^0.26.1"
+		"pocketbase": "^0.26.1",
+		"svelte-routing": "^2.13.0"
 	}
 }

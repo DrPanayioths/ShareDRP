@@ -6,9 +6,9 @@
   import PocketBase from "pocketbase";
   import searchPng from "$lib/search.png";
   import Copy from "$lib/Copy.png";
+  import { goto } from "$app/navigation";
 
   // File Upload System
-
   const pb = new PocketBase("http://127.0.0.1:8090");
   let input: HTMLInputElement | null = null;
 
@@ -18,15 +18,14 @@
 
   // Notification Function
   function notify(id: string) {
-    const notify_section = document.getElementById("notify_section");
     const notify_box = document.getElementById("notify_box");
     const notify_text = document.getElementById("notify_id");
-    notify_section!.style.opacity = "1";
+    notify_box!.style.opacity = "1";
     notify_box!.style.visibility = "visible";
     notify_text!.textContent = id;
 
     setTimeout(() => {
-      notify_section!.style.opacity = "0";
+      notify_box!.style.opacity = "0";
       notify_box!.style.visibility = "collapse";
     }, 10000);
   }
@@ -80,6 +79,11 @@
     let data = document.getElementById("notify_id");
     navigator.clipboard.writeText(data?.textContent || "No File Id Found");
   }
+
+  function route(url: string) {
+    let now = window.location.href;
+    goto("/receive");
+  }
 </script>
 
 <!-- Drag And Drop Font -->
@@ -99,7 +103,13 @@
 />
 
 <div id="drop_system">
-  <input id="upload" type="file" multiple onchange={upload_sequence} />
+  <input
+    id="upload"
+    type="file"
+    multiple
+    onchange={upload_sequence}
+    class="no-select"
+  />
   <div id="dropper_ui">
     <div id="border">
       <div id="center_data">
@@ -114,6 +124,12 @@
       </div>
     </div>
     <div id="notify_section">
+      <button
+        id="receive_button"
+        class="no-select"
+        onclick={() => route("Receive")}>Receive</button
+      >
+
       <div id="notify_box">
         <div class="notify_text">
           File ID:<span id="notify_id">wdh2hjdhg</span>
@@ -138,7 +154,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 93vh;
+    height: 90vh;
   }
 
   #dropper_ui {
@@ -146,7 +162,6 @@
     height: 350px;
     width: 350px;
     border-radius: 50px;
-    margin: 0 auto;
     box-shadow: 0 0 30px #5eb95b;
     transition: box-shadow 0.2s ease-in-out;
   }
@@ -198,8 +213,9 @@
 
   /* Notify System */
   #notify_section {
-    opacity: 0;
     display: flex;
+    flex-direction: column;
+    gap: 50px;
     height: 10vw;
     width: auto;
     transition: all 0.5s;
@@ -209,8 +225,11 @@
     background-color: #439946;
     padding: 5px;
     height: 4vh;
-    width: 50vh;
+
     border-radius: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    opacity: 0;
     visibility: collapse;
 
     align-self: flex-end;
@@ -227,9 +246,11 @@
   .notify_text {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 4vh;
     color: #ffffff;
-    margin-top: 15px;
     font-family: "Bitcount Grid Double", system-ui;
+    font-size: 1.2rem;
     font-weight: 500;
     user-select: none;
   }
@@ -246,12 +267,12 @@
   #function_copy_button {
     border: none;
     background-color: transparent;
+    cursor: pointer;
   }
 
   #copy_fileid {
-    height: 2vh;
+    height: 1.8vh;
     align-self: flex-end;
-    margin-left: 5px;
     transition: 0.5s;
   }
 
@@ -261,5 +282,31 @@
 
   ::selection {
     background-color: rgb(24, 121, 0);
+  }
+
+  /* Settings Menu */
+  #receive_button {
+    color: white;
+    background-color: #508d4e;
+    border: 4px solid #315830;
+    font-size: 2vh;
+    cursor: pointer;
+    transition: all 0.5s;
+
+    margin: 0 auto;
+    margin-top: 5vh;
+    border-radius: 10px;
+    font-family: "Ubuntu", sans-serif;
+    width: min-content;
+
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    padding-left: 5vh;
+    padding-right: 5vh;
+  }
+
+  #receive_button:hover {
+    border: 4px solid #62c460;
+    background-color: #3b8538;
   }
 </style>
