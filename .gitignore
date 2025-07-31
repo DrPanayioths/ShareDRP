@@ -1,4 +1,4 @@
-# ShareDRP .gitignore
+node_modules
 
 # Output
 .output
