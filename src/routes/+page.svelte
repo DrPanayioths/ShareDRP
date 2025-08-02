@@ -18,7 +18,6 @@
 </script>
 
 <Navbar />
-
 <Get_file />
 
 <!-- Pull File From Database -->
@@ -28,4 +27,5 @@
 
 <!-- To-Do: Add File Upload Mode: Pocketbase Or Vercel Storage -->
 <!-- To-Do: Add a if to check if the user wants to use pocketbase and work on vercel version -->
+<!-- To-Do: Redesign Main Page To Be Minimalistic -->
 <!-- The Color Pallete Of The Site: https://colorhunt.co/palette/d6efd880af81508d4e1a5319 -->
