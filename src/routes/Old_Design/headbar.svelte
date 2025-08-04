@@ -18,18 +18,17 @@
   #bar {
     display: flex;
     height: auto;
-    margin: 0 auto;
-    width: 25%;
+    width: auto;
     border-radius: 25px;
-    border: 4px solid rgb(114, 114, 114);
+    background-color: #80af81;
     backdrop-filter: blur(15px);
     justify-content: center;
   }
   h1 {
-    color: black;
+    color: #1a5319;
     font-weight: 600;
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.5em;
     font-family: "Open Sans", sans-serif;
   }
 </style>

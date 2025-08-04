@@ -91,6 +91,11 @@
   href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
   rel="stylesheet"
 />
+<!-- [File ID] Title Font -->
+<link
+  href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=swap"
+  rel="stylesheet"
+/>
 <!-- [File ID] Text Font -->
 <link
   href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
@@ -153,18 +158,17 @@
   }
 
   #dropper_ui {
-    border: rgba(0, 0, 0, 0.377) 5px solid;
+    background-color: #1a5319;
     height: 350px;
     width: 350px;
     border-radius: 50px;
+    box-shadow: 0 0 30px #5eb95b;
     transition: box-shadow 0.2s ease-in-out;
-    backdrop-filter: blur(10px);
   }
 
   #upload {
     position: absolute;
     opacity: 0;
-    z-index: 50;
     height: 350px;
     width: 350px;
     border-radius: 50px;
@@ -173,17 +177,17 @@
   }
 
   #upload:hover ~ #dropper_ui {
-    box-shadow: 0 0 10px grey;
+    box-shadow: 0 0 50px #5eb95b;
   }
 
   #border {
     margin-top: 20px;
     margin-left: 25px;
-    border-radius: 30px;
+    border-radius: 20px;
     height: 80%;
     width: 80%;
     background-color: transparent;
-    border: 10px #494b49 dotted;
+    border: 10px #508d4e dotted;
   }
 
   /* Center Data Of The Box */
@@ -200,7 +204,7 @@
     font-family: "Ubuntu", sans-serif;
     font-weight: 800;
     margin: 0 auto;
-    color: black;
+    color: whitesmoke;
   }
 
   #search_icon {
@@ -218,8 +222,7 @@
   }
 
   #notify_box {
-    background-color: #494b4956;
-    backdrop-filter: blur(50px);
+    background-color: #439946;
     padding: 5px;
     height: 4vh;
 
@@ -231,8 +234,13 @@
 
     align-self: flex-end;
     margin: 0 auto;
-    border: 4px solid rgba(0, 0, 0, 0.301);
-    box-shadow: 2px 4px 2px rgb(114, 114, 114);
+    border: 4px solid #3e8e41;
+    box-shadow:
+      rgba(58, 58, 58, 0.25) 0px 54px 55px,
+      rgba(58, 58, 58, 0.12) 0px -12px 30px,
+      rgba(58, 58, 58, 0.12) 0px 4px 6px,
+      rgba(58, 58, 58, 0.17) 0px 12px 13px,
+      rgba(58, 58, 58, 0.09) 0px -3px 5px;
   }
 
   .notify_text {
@@ -240,12 +248,11 @@
     justify-content: center;
     align-items: center;
     height: 4vh;
-    color: rgb(255, 255, 255);
-    font-size: 1.3rem;
+    color: #ffffff;
+    font-family: "Bitcount Grid Double", system-ui;
+    font-size: 1.2rem;
     font-weight: 500;
     user-select: none;
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 800;
   }
 
   #notify_id {
@@ -279,9 +286,9 @@
 
   /* Settings Menu */
   #receive_button {
-    color: black;
-    background-color: transparent;
-    border: 4px solid black;
+    color: white;
+    background-color: #508d4e;
+    border: 4px solid #315830;
     font-size: 2vh;
     cursor: pointer;
     transition: all 0.5s;
@@ -299,6 +306,7 @@
   }
 
   #receive_button:hover {
-    background-color: rgba(0, 0, 0, 0.247);
+    border: 4px solid #62c460;
+    background-color: #3b8538;
   }
 </style>
