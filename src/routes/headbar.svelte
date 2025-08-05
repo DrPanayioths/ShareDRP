@@ -19,6 +19,8 @@
     display: flex;
     height: auto;
     margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
     width: 25%;
     border-radius: 25px;
     border: 4px solid rgb(114, 114, 114);
@@ -29,7 +31,7 @@
     color: black;
     font-weight: 600;
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1rem;
     font-family: "Open Sans", sans-serif;
   }
 </style>

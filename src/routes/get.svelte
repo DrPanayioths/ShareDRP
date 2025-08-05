@@ -4,7 +4,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import PocketBase from "pocketbase";
-  import searchPng from "$lib/search.png";
+  import searchPng from "$lib/search.svg";
   import Copy from "$lib/Copy.png";
   import { goto } from "$app/navigation";
 
@@ -153,9 +153,8 @@
   }
 
   #dropper_ui {
-    border: rgba(0, 0, 0, 0.377) 5px solid;
-    height: 350px;
-    width: 350px;
+    height: 300px;
+    width: 300px;
     border-radius: 50px;
     transition: box-shadow 0.2s ease-in-out;
     backdrop-filter: blur(10px);
@@ -173,17 +172,17 @@
   }
 
   #upload:hover ~ #dropper_ui {
-    box-shadow: 0 0 10px grey;
+    backdrop-filter: blur(50px);
   }
 
   #border {
-    margin-top: 20px;
+    margin-top: 25px;
     margin-left: 25px;
     border-radius: 30px;
     height: 80%;
     width: 80%;
     background-color: transparent;
-    border: 10px #494b49 dotted;
+    border: 5px #494b49 dashed;
   }
 
   /* Center Data Of The Box */
@@ -205,6 +204,7 @@
 
   #search_icon {
     margin-bottom: 10px;
+    height: 2rem;
   }
 
   /* Notify System */
@@ -241,7 +241,7 @@
     align-items: center;
     height: 4vh;
     color: rgb(255, 255, 255);
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 500;
     user-select: none;
     font-family: "Ubuntu", sans-serif;
@@ -274,21 +274,22 @@
   }
 
   ::selection {
-    background-color: rgb(24, 121, 0);
+    background-color: rgba(0, 0, 0, 0.26);
   }
 
   /* Settings Menu */
   #receive_button {
     color: black;
     background-color: transparent;
-    border: 4px solid black;
+    border: 3px solid black;
+    box-shadow: 2px 3px 2px rgb(107, 107, 107);
     font-size: 2vh;
     cursor: pointer;
     transition: all 0.5s;
 
     margin: 0 auto;
-    margin-top: 5vh;
-    border-radius: 10px;
+    margin-top: 2.5vh;
+    border-radius: 25px;
     font-family: "Ubuntu", sans-serif;
     width: min-content;
 
@@ -299,6 +300,6 @@
   }
 
   #receive_button:hover {
-    background-color: rgba(0, 0, 0, 0.247);
+    background-color: rgba(172, 172, 172, 0.267);
   }
 </style>
