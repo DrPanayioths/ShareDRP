@@ -145,6 +145,11 @@
 </div>
 
 <style>
+  /* Global Vars */
+  :root {
+    --dropper-ui-size: 300px;
+  }
+
   #drop_system {
     display: flex;
     justify-content: center;
@@ -153,8 +158,8 @@
   }
 
   #dropper_ui {
-    height: 300px;
-    width: 300px;
+    height: var(--dropper-ui-size);
+    width: var(--dropper-ui-size);
     border-radius: 50px;
     transition: box-shadow 0.2s ease-in-out;
     backdrop-filter: blur(10px);
@@ -164,8 +169,8 @@
     position: absolute;
     opacity: 0;
     z-index: 50;
-    height: 350px;
-    width: 350px;
+    height: var(--dropper-ui-size);
+    width: var(--dropper-ui-size);
     border-radius: 50px;
     margin: 0 auto;
     cursor: pointer;
@@ -211,7 +216,6 @@
   #notify_section {
     display: flex;
     flex-direction: column;
-    gap: 50px;
     height: 10vw;
     width: auto;
     transition: all 0.5s;
@@ -231,6 +235,7 @@
 
     align-self: flex-end;
     margin: 0 auto;
+    margin-top: 8vh;
     border: 4px solid rgba(0, 0, 0, 0.301);
     box-shadow: 2px 4px 2px rgb(114, 114, 114);
   }
@@ -288,15 +293,15 @@
     transition: all 0.5s;
 
     margin: 0 auto;
-    margin-top: 2.5vh;
+    margin-top: 3vh;
     border-radius: 25px;
     font-family: "Ubuntu", sans-serif;
     width: min-content;
 
-    padding-top: 2vh;
-    padding-bottom: 2vh;
-    padding-left: 5vh;
-    padding-right: 5vh;
+    padding-top: 0.8vh;
+    padding-bottom: 0.8vh;
+    padding-left: 3vh;
+    padding-right: 3vh;
   }
 
   #receive_button:hover {

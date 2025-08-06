@@ -29,7 +29,14 @@
     } catch (error) {
       const error_code = error instanceof Error ? error.message : String(error);
 
-      notify(error_code, 5000);
+      console.log(error_code);
+      if (error_code === "Something went wrong.") {
+        notify(error_code + " Pocketbase may not be running.", 5000);
+        console.clear();
+      } else {
+        notify(error_code, 5000);
+        console.clear();
+      }
     }
   }
 
