@@ -14,6 +14,8 @@
     try {
       let input_data = document.getElementById("file-id") as HTMLInputElement;
       const record = await pb.collection("Files").getOne(input_data.value);
+
+      // To-Do: URL Syste change to allow every user on the network to upload
       const get = `http://127.0.0.1:8090/api/files/${record.collectionId}/${record.id}/${record.file}`;
 
       // To-Do: Selection For Randomazition Of Download File Name
@@ -51,6 +53,10 @@
     }, time);
   }
 </script>
+
+<head>
+  <title>ShareDRP [By DrPanayioths]</title>
+</head>
 
 <body>
   <div id="container">

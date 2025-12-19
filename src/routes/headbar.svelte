@@ -1,5 +1,5 @@
 <script lang="ts">
-  let Powered = "<DrPanayioths/>";
+  const user_public_ip = __Network_IP__ + ":5173";
 </script>
 
 <head>
@@ -11,7 +11,13 @@
 </head>
 
 <div id="bar">
-  <h1 class="no-select">Share Server | Powered By {Powered}</h1>
+  <h1 class="no-select">
+    Share Server | URL: <a
+      id="network_url"
+      href="http://{user_public_ip}"
+      target="_blank">{user_public_ip}</a
+    >
+  </h1>
 </div>
 
 <style>
@@ -33,5 +39,10 @@
     text-align: center;
     font-size: 1rem;
     font-family: "Open Sans", sans-serif;
+  }
+  #network_url {
+    color: rgb(0, 132, 255);
+    font-weight: 900;
+    text-decoration: none;
   }
 </style>
